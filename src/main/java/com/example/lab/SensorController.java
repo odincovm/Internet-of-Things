@@ -10,6 +10,7 @@ public class SensorController {
     @Autowired
     private SensorRepo Spero;
     Long time = 0L;
+
     @PostMapping
     public ResponseEntity setdata(@RequestBody limitations lim){
             time++;
