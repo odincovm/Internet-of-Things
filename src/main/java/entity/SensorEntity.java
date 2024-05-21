@@ -13,8 +13,9 @@ public class SensorEntity {
     private int temperature;
     private int time;
 
-    public SensorEntity() {
+    public SensorEntity(){
     }
+
 
     public void setId_sensor(Long id_sensor) {
         this.id_sensor = id_sensor;
