@@ -7,36 +7,36 @@ import jakarta.persistence.Id;
 
 @Entity
 public class SensorEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_sensor;
+    private Long time;
+
     private int temperature;
-    private int time;
 
-    public SensorEntity() {
+
+    public SensorEntity(Long time,int minimum,int maximum){
+        // генерация случайного числа
+        this.time=time;
+        int randomNum = (int) (minimum + (int)(Math.random() * maximum));
+        temperature = randomNum;
     }
-
-    public void setId_sensor(Long id_sensor) {
-        this.id_sensor = id_sensor;
+    public SensorEntity(){
+        time=1L;
     }
-
     public void setTemperature(int temperature) {
         this.temperature = temperature;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public Long getId_sensor() {
-        return id_sensor;
     }
 
     public int getTemperature() {
         return temperature;
     }
 
-    public int getTime() {
+    public Long getTime() {
         return time;
     }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
 }
