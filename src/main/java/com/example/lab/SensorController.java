@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 public class SensorController {
     @Autowired
     private SensorRepo Spero;
-
+    Long time = 0L;
     @PostMapping
-    public ResponseEntity setdata(@RequestBody SensorEntity sens){
+    public ResponseEntity setdata(@RequestBody limitations lim){
+            time++;
+            SensorEntity sens = new SensorEntity(time, lim.min, lim.max);
             Spero.save(sens);
             return ResponseEntity.ok("Сгенерирована новая запись в бд");
 
